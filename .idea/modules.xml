@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BuenasPracticas/BuenasPracticas.iml" filepath="$PROJECT_DIR$/BuenasPracticas/BuenasPracticas.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hola mundo/Hola mundo.iml" filepath="$PROJECT_DIR$/Hola mundo/Hola mundo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MergeWithOutConflict/MergeWithOutConflict.iml" filepath="$PROJECT_DIR$/MergeWithOutConflict/MergeWithOutConflict.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Prog-str-2E-Emiliano-Benites.iml" filepath="$PROJECT_DIR$/.idea/Prog-str-2E-Emiliano-Benites.iml" />
     </modules>
   </component>
