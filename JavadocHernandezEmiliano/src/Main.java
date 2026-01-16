@@ -3,71 +3,102 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        int opc;
         System.out.println("selecciona una opcion");
         do {
-            System.out.println("menu");
+            System.out.println(" menu ");
             System.out.println(" 1-Calcular IMC");
             System.out.println("2- Calcular are de un rectangulo");
-            System.out.println("3- Convertir °C a °F");
-            System.out.println("4- Calcular area de un circulo");
+            System.out.println("3- Calcular area de un circulo");
+            System.out.println("4- Convertir °C a °F");
             System.out.println("5- Salir");
 
+            opc = sc.nextInt();
 
-            switch (5) {
+            switch (opc) {
                 case 1:
-                    System.out.println("seleccionaste la opcion uno ");
+                    calcularIMC(sc);
                     break;
 
                 case 2:
-                    System.out.println("Calcular el area de un rectangulo");
+                    calcularArea(sc);
 
                     break;
 
                 case 3:
-                    System.out.println("conversion de grados");
-                    System.out.println("Ingrese su temperatura en grados °C");
-                    double C = sc.nextDouble();
-                    double GC = (C *1.8)+32;
-                    System.out.println("tus grados F " +GC);
+                    calcularAreaCirculo(sc);
                     break;
 
                 case 4:
-                    System.out.println("Calcula el area de un circulo");
-                    System.out.println("ingrese el radio delcirculo");
-                    double rad =sc.nextDouble();
-                    double areaC = 3.1416* (rad *rad);
-                    System.out.println("El area de tu circulo es " + areaC);
+                    conversion(sc);
                     break;
 
                 case 5:
                     System.out.println("saliendo del programa");
                     break;
+                default:
+                    System.out.printf("Opcion invalida intente de nuevo");
             }
 
 
-        }
+        }while (opc !=5);
+        sc.close();
     }
 
     /**
      *
-     * @param pesoKG -> parametro de peso
-     * @param alturaMetro -> parametro de altur
-     * @param sc -> previamente declarado
+     * @param sc - variable de la opcion de menu
+     * @return - metodo de retorno de clase
+     */
+    public static double calcularIMC(Scanner sc){
+        System.out.printf("Ingrese su peso en kg");
+        double peso = sc.nextDouble();
+        System.out.printf("Ingrese su altura en metros ");
+        double altura = sc.nextDouble();
+        double imc = peso/ (altura * altura);
+        System.out.printf("Tu IMC es" + imc);
+        return imc;
+    }
+
+    /**
+     *
+     * calcular area clase creada para facilitar la operacion
      * @return
      */
-    public static double calcularIMC(double pesoKG, double alturaMetro, Scanner sc){
-        double IMC = pesoKG / (alturaMetro * alturaMetro);
-        System.out.println("IMC: " + IMC);
-        return IMC;
-    }
-    public static double calcularAreaRectangulo (double alturaR, double baseR, Scanner sc){
-        System.out.println("ingrese la base del rectangulo");
-        double base = sc.nextDouble();
-        System.out.println("Ingrese la altura del rectangulo");
-        double Altura = sc.nextDouble();
-        double area = base * Altura;
-        System.out.println("el area es " + area);
-    }
-}
+        public static double calcularArea(Scanner sc) {
+            System.out.printf("ingrese la base del rectangulo");
+            double base = sc.nextDouble();
+            System.out.printf("Ingrese la altura del rectangulo");
+            double altura = sc.nextDouble();
+            double area = base * altura;
+            System.out.printf("El area del rectangulo es " + area);
+            return area;
+        }
+
+
+            public static double calcularAreaCirculo(Scanner sc) {
+                System.out.printf("Ingrese el radio del circulo");
+                double radio = sc.nextDouble();
+                double area = Math.PI * radio;
+                System.out.printf("El area del circulo es " + area);
+                return area;
+            }
+
+    /**
+     *
+     *
+     * @return - metodo de retorno de clase
+     */
+                public static double conversion (Scanner sc){
+                    System.out.printf("Ingrese la temperatura en °C");
+                    double caelsius = sc.nextDouble();
+                    double fa = (caelsius * 1.8) + 32;
+                    System.out.printf("La temperatura a grados °F es: " + fa);
+                    return fa;
+                }
+            }
+
+
+
+
 
