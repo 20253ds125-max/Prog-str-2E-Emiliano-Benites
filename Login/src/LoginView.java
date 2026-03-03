@@ -26,7 +26,7 @@ public class LoginView {
             } else if (password.length() < 6) {
                 lblError.setText("Contrasena minima 6 caracteres");
             }else {
-                DashboardView dashboard + new DashboarView(correo);
+                DashboardView Dashboard = new DashboarView(correo);
                 stage.setScene (new javafx.scene.Scene(dashboar.getView(), 350,200));
                 stage.setTitle("Dashboar");
             }
