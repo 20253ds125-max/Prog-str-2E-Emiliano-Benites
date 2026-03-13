@@ -19,23 +19,35 @@ public class PersonService {
             String [] parts=line.split(",");
             String name=parts[0];
             String email=parts[1];
-            result.add("Nombre: "+name+" - Email: "+email);
+            String edad=parts[2];
+            result.add("Nombre: "+name+" - Email: "+email + " - Edad: "+edad);
         }
         return result;
     }
 
-    public void addPerson(String name, String email) throws IOException {
-        validate(name, email);
-        repository.appendNewLine(name+ ","+email);
+    public void addPerson(String name, String email, String edad) throws IOException {
+        validate(name, email, edad);
+        repository.appendNewLine(name+ " , "+email +" , " +edad);
     }
 
-    private void validate(String name, String email){
+    private void validate(String name, String email, String  edad){
         if (name==null || name.isBlank() || name.length()<3){
             throw new IllegalArgumentException("El nombre es incorrecto");
         }
+
         String em=(email==null) ? "" : email.trim();
         if (em.isBlank()|| !em.contains("@")|| !em.contains(".") ){
             throw new IllegalArgumentException("El email es incorrecto");
         }
+        String edadNotNull=(edad==null) ? "" : edad.trim();
+        int parsEdad = Integer.parseInt(edadNotNull);
+        if (parsEdad > 0){
+            throw new IllegalArgumentException("No pueden ser numeros negativos ");
+        }else {
+           if (parsEdad > 120 || parsEdad < 18) {
+                throw new IllegalArgumentException("La edad es ivalida ");
+            }
+        }
+
     }
 }

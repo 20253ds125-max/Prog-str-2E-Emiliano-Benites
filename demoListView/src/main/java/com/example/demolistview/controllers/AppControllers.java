@@ -21,9 +21,11 @@ public class AppControllers {
     private TextField txtName;
     @FXML
     private TextField txtEmail;
+    @FXML
+    private TextField txtEdad;
 
     @FXML
-    private ObservableList<String> data= FXCollections.observableArrayList();
+    private ObservableList<String> data = FXCollections.observableArrayList();
 
     private PersonService service=new PersonService();
 
@@ -54,13 +56,16 @@ public class AppControllers {
     public void onAdd() {
 
         try {
+
             String name = txtName.getText();
             String email = txtEmail.getText();
-            service.addPerson(name, email);
+            String edad = txtEdad.getText();
+            service.addPerson(name, email, edad);
             lblMsg.setText("Persona creada con exito");
             lblMsg.setStyle("-fx-text-fill: green");
             txtEmail.clear();
             txtName.clear();
+            txtEdad.clear();
         } catch (IOException e) {
             lblMsg.setText("Hubo un error con el archivo");
             lblMsg.setStyle("-fx-text-fill: red");
